@@ -1,0 +1,23 @@
+[
+    {
+        "identifiant": "1",
+        "prenom": "azoeb",
+        "nom": "azoejb",
+        "numero_telephone": "741",
+        "mot_de_passe": "LeFisc1!"
+    },
+    {
+        "identifiant": "2",
+        "prenom": "aze",
+        "nom": "aze",
+        "numero_telephone": "84",
+        "mot_de_passe": "aze"
+    },
+    {
+        "identifiant": "3",
+        "prenom": "aze",
+        "nom": "aze",
+        "numero_telephone": "6874",
+        "mot_de_passe": "azez"
+    }
+]
