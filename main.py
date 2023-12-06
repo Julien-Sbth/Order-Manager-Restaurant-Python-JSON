@@ -47,6 +47,26 @@ class Connexion(Clients):
         print("Connexion échouée. Veuillez vérifier vos informations.")
 
     @staticmethod
+    def modifier_infos_client(identifiant, nouveau_prenom, nouveau_nom, nouveau_telephone, nouveau_mot_de_passe):
+        clients = Connexion.obtenir_clients()
+
+        for client in clients:
+            if client['prenom'] == identifiant:
+                # Mettre à jour les informations spécifiées (par exemple, le numéro de téléphone)
+                client['prenom'] = nouveau_prenom
+                client['nom'] = nouveau_nom
+                client['numero_telephone'] = nouveau_telephone
+                client['mot_de_passe'] = nouveau_mot_de_passe
+
+                # Enregistrer les modifications dans le fichier JSON
+                with open("clients.json", 'w') as fichier:
+                    json.dump(clients, fichier, indent=4)
+                print(f"Informations du client {identifiant} mises à jour.")
+                return
+
+        print(f"Aucun client avec l'identifiant {identifiant} trouvé.")
+
+    @staticmethod
     def supprimer_client(identifiant):
         clients = Connexion.obtenir_clients()
 
@@ -111,16 +131,25 @@ class Inscription(Clients):
         print(f"Le client {self.identifiant} a été ajouté à clients.json.")
 
 
-def ecrire_message():
-    message = input("Veuillez entrer votre plat : ")
+def ecrire_Plat():
+    nom = input("Veuillez entrer un nom de votre plat : ")
+    description = input("Veuillez entrer une description de votre plat : ")
+    prix = input("Veuillez entrer le prix de votre plat : ")
+    categorie = input("Veuillez entrer la catégorie de votre plat : ")
     nom_fichier = "plats.json"
 
-    data = {"message": message}
+    data = {
+        "nom": nom,
+        "description": description,
+        "prix": prix,
+        "categorie": categorie
+    }
 
     with open(nom_fichier, 'w') as fichier:
         json.dump(data, fichier)
 
-    print(f"Le message '{message}' a été sauvegardé dans {nom_fichier}.")
+    print(f"Les informations du plat ont été sauvegardées dans {nom_fichier}.")
+
 
 
 def afficher_dernier_message():
@@ -164,15 +193,22 @@ while True:
 
     while True:
         choix = input(
-            "Que souhaitez-vous faire ? (1 pour écrire un message, 2 pour voir le dernier message, 3 pour afficher les clients, 4 pour supprimer un client q pour quitter) : ")
+            "Que souhaitez-vous faire ? (1 pour écrire un message, 2 pour voir le dernier message, 3 pour afficher les clients, 4 pour modifier les informations d'un client, 5 pour supprimer un client q pour quitter) : ")
 
         if choix == "1":
-            ecrire_message()
+            ecrire_Plat()
         elif choix == "2":
             afficher_dernier_message()
         elif choix == "3":
             input("")
         elif choix == "4":
+            identifiant_a_modifier = input("Entrez l'identifiant du client à modifier : ")
+            nouveau_prenom = input("Entrez le nouveau prenom : ")
+            nouveau_nom = input("Entrez le nouveau nom : ")
+            nouveau_numero_telephone = input("Entrez le nouveau numéro de téléphone : ")
+            nouveau_mot_de_passe = input("Entrez le nouveau mot de passe : ")
+            Connexion.modifier_infos_client(identifiant_a_modifier, nouveau_numero_telephone, nouveau_nom, nouveau_prenom, nouveau_mot_de_passe)
+        elif choix == "5":
             identifiant_a_supprimer = input("Entrez l'identifiant du client à supprimer : ")
             Connexion.supprimer_client(identifiant_a_supprimer)
         elif choix.lower() == "q":
