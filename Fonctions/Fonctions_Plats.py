@@ -9,20 +9,16 @@ def ecrire_Plat():
     categorie = input("Veuillez entrer la catégorie de votre plat : ")
     nom_fichier = "./json/plats.json"
 
-    # Charger les données existantes s'il y en a
     if os.path.exists(nom_fichier):
         with open(nom_fichier, 'r') as fichier:
             data = json.load(fichier)
     else:
         data = []
 
-    # Trouver le dernier ID ou initialiser à 0 s'il n'y en a pas
     dernier_id = max([plats.get('id', 0) for plats in data], default=0)
 
-    # Nouvel ID pour le nouveau plat
     nouvel_id = dernier_id + 1
 
-    # Créer le dictionnaire pour le nouveau plat avec l'ID
     nouveau_plat = {
         "id": nouvel_id,
         "nom": nom,
@@ -31,10 +27,8 @@ def ecrire_Plat():
         "categorie": categorie
     }
 
-    # Ajouter le nouveau plat à la liste des plats
     data.append(nouveau_plat)
 
-    # Enregistrer les données mises à jour dans le fichier JSON
     with open(nom_fichier, 'w') as fichier:
         json.dump(data, fichier, indent=4)
 

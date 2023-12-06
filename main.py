@@ -1,8 +1,9 @@
 from Fonctions.Connexion import Connexion
 from Fonctions.inscription import Inscription
 from Fonctions.Fonctions_Plats import ecrire_Plat, afficher_dernier_message
+
 while True:
-    choix_connexion = input("Souhaitez-vous vous connecter (C) ou vous inscrire (I) ? (C/I/q pour quitter) : ")
+    choix_connexion = input("Souhaitez-vous vous connecter (c) ou vous inscrire (i) ? (c/i/q pour quitter) : ")
 
     if choix_connexion.lower() == "c":
         prenom = input("Entrez votre Prénom : ")
@@ -22,11 +23,12 @@ while True:
         print("Au revoir !")
         break
     else:
-        print("Choix invalide. Veuillez choisir C pour vous connecter, I pour vous inscrire ou q pour quitter.")
+        print("Choix invalide. Veuillez choisir c pour vous connecter, i pour vous inscrire ou q pour quitter.")
 
     while True:
         choix = input(
-            "Que souhaitez-vous faire ? (1 pour écrire un plat, 2 pour voir le dernier plat, 3 pour afficher les clients, 4 pour modifier les informations d'un client, 5 pour supprimer un client q pour quitter) : ")
+            "Que souhaitez-vous faire ? (1 pour écrire un plat, 2 pour voir le dernier plat, 3 pour afficher les "
+            "clients, 4 pour modifier les informations d'un client, 5 pour supprimer un client q pour quitter) : ")
 
         if choix == "1":
             ecrire_Plat()

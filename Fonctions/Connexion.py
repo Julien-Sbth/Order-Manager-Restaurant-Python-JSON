@@ -1,6 +1,6 @@
 import json
 import os
-from Fonctions.clients import Clients  # Assurez-vous d'importer la classe Clients si nécessaire
+from Fonctions.clients import Clients
 
 
 class Connexion(Clients):
@@ -23,7 +23,6 @@ class Connexion(Clients):
 
         for client in clients:
             if client['prenom'] == identifiant:
-                # Mettre à jour les informations spécifiées (par exemple, le numéro de téléphone)
                 client['prenom'] = nouveau_prenom
                 client['nom'] = nouveau_nom
                 client['numero_telephone'] = nouveau_telephone

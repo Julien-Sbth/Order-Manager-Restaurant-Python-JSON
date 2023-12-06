@@ -1,6 +1,6 @@
 import json
 import os
-from Fonctions.clients import Clients  # Assurez-vous d'importer la classe Clients si nécessaire
+from Fonctions.clients import Clients
 
 
 class Inscription(Clients):
