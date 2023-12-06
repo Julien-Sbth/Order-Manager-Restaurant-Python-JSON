@@ -9,13 +9,16 @@ class Connexion(Clients):
         self.mot_de_passe = mot_de_passe
 
     def connecter(self):
-        clients = self.obtenir_clients()
-        for client in clients:
-            if 'mot_de_passe' in client and client['prenom'] == self.prenom and client[
-                'mot_de_passe'] == self.mot_de_passe:
-                print(f"Connecté en tant que client {self.prenom}.")
-                return
-        print("Connexion échouée. Veuillez vérifier vos informations.")
+        while True:
+            clients = self.obtenir_clients()
+            for client in clients:
+                if 'mot_de_passe' in client and client['prenom'] == self.prenom and client[
+                    'mot_de_passe'] == self.mot_de_passe:
+                    print(f"Connecté en tant que client {self.prenom}.")
+                    return
+            print("Connexion échouée. Veuillez vérifier vos informations.")
+            self.prenom = input("Entrez votre prénom : ")
+            self.mot_de_passe = input("Entrez votre mot de passe : ")
 
     @staticmethod
     def modifier_infos_client(identifiant, nouveau_prenom, nouveau_nom, nouveau_telephone, nouveau_mot_de_passe):
