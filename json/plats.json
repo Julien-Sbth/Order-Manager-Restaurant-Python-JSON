@@ -1,1 +1,23 @@
-{"nom": "Ratatouille", "description": "test", "prix": "test", "categorie": "test"}
+[
+    {
+        "id": 1,
+        "nom": "test",
+        "description": "test",
+        "prix": 19.99,
+        "categorie": "Dessert"
+    },
+    {
+        "id": 2,
+        "nom": "aze",
+        "description": "aze",
+        "prix": "aze",
+        "categorie": "aze"
+    },
+    {
+        "id": 3,
+        "nom": "aze",
+        "description": "aze",
+        "prix": "aez",
+        "categorie": "aze"
+    }
+]
