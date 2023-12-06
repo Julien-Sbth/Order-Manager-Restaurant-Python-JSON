@@ -26,5 +26,12 @@
         "nom": "aze",
         "numero_telephone": "8",
         "mot_de_passe": "aze"
+    },
+    {
+        "identifiant": "6",
+        "prenom": "test",
+        "nom": "test",
+        "numero_telephone": "0014799",
+        "mot_de_passe": "LeFisc1!"
     }
 ]
