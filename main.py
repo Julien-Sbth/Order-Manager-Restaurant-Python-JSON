@@ -1,6 +1,6 @@
 from Fonctions.Connexion import Connexion
 from Fonctions.inscription import Inscription
-from Fonctions.Fonctions_Plats import ecrire_Plat, afficher_dernier_message
+from Fonctions.Fonctions_Plats import Plats
 
 while True:
     choix_connexion = input("Souhaitez-vous vous connecter (c) ou vous inscrire (i) ? (c/i/q pour quitter) : ")
@@ -28,12 +28,13 @@ while True:
     while True:
         choix = input(
             "Que souhaitez-vous faire ? (1 pour écrire un plat, 2 pour voir le dernier plat, 3 pour afficher les "
-            "clients, 4 pour modifier les informations d'un client, 5 pour supprimer un client q pour quitter) : ")
+            "commandes d'un client, 4 pour modifier les informations d'un client, 5 pour supprimer un client, "
+            "6 pour modifier un plat, 7 pour supprimer un plat, q pour quitter) : ")
 
         if choix == "1":
-            ecrire_Plat()
+            Plats.ecrire_plat()
         elif choix == "2":
-            afficher_dernier_message()
+            Plats.afficher_dernier_message()
         elif choix == "3":
             input("")
         elif choix == "4":
@@ -46,6 +47,30 @@ while True:
         elif choix == "5":
             identifiant_a_supprimer = input("Entrez l'identifiant du client à supprimer : ")
             Connexion.supprimer_client(identifiant_a_supprimer)
+        elif choix == "6":
+            plat_a_modifier = input("Entrez l'ID du plat à modifier : ")
+            nouveau_nom = input("Entrez le nouveau nom : ")
+            nouvelle_description = input("Entrez la nouvelle description : ")
+
+            while True:
+                nouveau_prix = input("Entrez le nouveau prix : ")
+                try:
+                    nouveau_prix = float(nouveau_prix)
+                    break
+                except ValueError:
+                    print("Le prix doit être un nombre.")
+
+            nouvelle_categorie = input("Entrez la nouvelle catégorie : ")
+
+            Plats.modifier_plat(plat_a_modifier, {
+                "nom": nouveau_nom,
+                "description": nouvelle_description,
+                "prix": nouveau_prix,
+                "categorie": nouvelle_categorie
+            })
+        elif choix == "7":
+            plat_a_supprimer = input("Entrez l'ID du plat à supprimer : ")
+            Plats.supprimer_plat(plat_a_supprimer)
         elif choix.lower() == "q":
             print("Au revoir !")
             break
