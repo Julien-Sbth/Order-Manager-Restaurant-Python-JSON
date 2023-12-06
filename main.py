@@ -46,6 +46,19 @@ class Connexion(Clients):
                 return
         print("Connexion échouée. Veuillez vérifier vos informations.")
 
+    @staticmethod
+    def supprimer_client(identifiant):
+        clients = Connexion.obtenir_clients()
+
+        for idx, client in enumerate(clients):
+            if client['prenom'] == identifiant:
+                del clients[idx]
+                with open("clients.json", 'w') as fichier:
+                    json.dump(clients, fichier, indent=4)
+                print(f"Le client {identifiant} a été supprimé.")
+                return
+
+        print(f"Aucun client avec l'identifiant {identifiant} trouvé.")
 
 
     @staticmethod
@@ -151,7 +164,7 @@ while True:
 
     while True:
         choix = input(
-            "Que souhaitez-vous faire ? (1 pour écrire un message, 2 pour voir le dernier message, 3 pour afficher les clients, q pour quitter) : ")
+            "Que souhaitez-vous faire ? (1 pour écrire un message, 2 pour voir le dernier message, 3 pour afficher les clients, 4 pour supprimer un client q pour quitter) : ")
 
         if choix == "1":
             ecrire_message()
@@ -159,6 +172,9 @@ while True:
             afficher_dernier_message()
         elif choix == "3":
             input("")
+        elif choix == "4":
+            identifiant_a_supprimer = input("Entrez l'identifiant du client à supprimer : ")
+            Connexion.supprimer_client(identifiant_a_supprimer)
         elif choix.lower() == "q":
             print("Au revoir !")
             break
