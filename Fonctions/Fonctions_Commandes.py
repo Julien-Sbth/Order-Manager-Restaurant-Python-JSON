@@ -1,6 +1,7 @@
 import json
 import os
 import csv
+import random
 
 
 class Commandes:
@@ -49,10 +50,15 @@ class Commandes:
         dernier_id = max([commande.get('id', 0) for commande in data], default=0)
         nouvel_id = dernier_id + 1
 
+        # Génération d'un montant aléatoire entre 10 et 100 euros
+        montant_facture = round(random.uniform(10, 100), 2)  # Chiffre aléatoire entre 10 et 100, arrondi à 2 décimales
+        facture_associee = f"{montant_facture} €"
+
         nouvelle_commande = {
             "id": nouvel_id,
             "client_id": client_id,
-            "plats": plats_commandes
+            "plats": plats_commandes,
+            "facture": facture_associee  # Ajout du champ facture
         }
 
         data.append(nouvelle_commande)
@@ -60,7 +66,7 @@ class Commandes:
         with open(nom_fichier, 'w') as fichier:
             json.dump(data, fichier, indent=4)
 
-        print(f"La commande pour le client avec l'ID {client_id} a été enregistrée.")
+        print(f"La commande pour le client avec l'ID {client_id} a été enregistrée avec la facture {facture_associee}.")
 
     @classmethod
     def exporter_commandes(cls):
@@ -82,3 +88,17 @@ class Commandes:
                     writer.writerow(ligne.values())
 
         print(f"Les données ont été exportées vers '{nom_fichier_csv}'.")
+
+    @staticmethod
+    def obtenir_facture_par_commande_id(commande_id):
+            nom_fichier = "./json/commandes.json"
+
+            if os.path.exists(nom_fichier):
+                with open(nom_fichier, 'r') as fichier:
+                    data = json.load(fichier)
+                    for commande in data:
+                        if str(commande['id']) == str(commande_id):
+                            return commande.get('facture')
+                    return "Aucune facture associée à cette commande."
+            else:
+                return "Le fichier des commandes n'existe pas."
