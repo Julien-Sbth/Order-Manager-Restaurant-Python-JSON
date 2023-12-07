@@ -135,3 +135,24 @@ class Plats:
         else:
             print(f"Aucun plat avec l'ID {plat_id} trouvé.")
 
+    @staticmethod
+    def afficher_commande_par_client_id(client_id):
+        nom_fichier = "./json/commandes.json"
+
+        commande_trouvee = False
+
+        if os.path.exists(nom_fichier):
+            with open(nom_fichier, 'r') as fichier:
+                data = json.load(fichier)
+                for commande in data:
+                    if str(commande['client_id']) == str(client_id):
+                        print(f"Commande ID : {commande['id']}")
+                        print(f"Client ID : {commande['client_id']}")
+                        print(f"Plats commandés : {commande['plats']}")
+                        commande_trouvee = True
+
+                if not commande_trouvee:
+                    print(f"Aucune commande trouvée pour le client avec l'ID {client_id}.")
+        else:
+            print(f"Le fichier des commandes {nom_fichier} n'existe pas.")
+
