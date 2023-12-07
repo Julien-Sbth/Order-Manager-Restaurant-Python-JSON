@@ -34,7 +34,7 @@ while True:
         if choix == "1":
             Plats.ecrire_plat()
         elif choix == "2":
-            Plats.afficher_dernier_message()
+            Plats.afficher_message_par_id()
         elif choix == "3":
             input("")
         elif choix == "4":
@@ -75,4 +75,5 @@ while True:
             print("Au revoir !")
             break
         else:
-            print("Choix invalide. Veuillez choisir 1, 2, 3, 4, 5 ou q pour quitter.")
+            print("Choix invalide. Veuillez choisir 1, 2, 3, 4, 5, 6 pour modifier un plat, 7 pour supprimer un plat,"
+                  "ou q pour quitter.")
