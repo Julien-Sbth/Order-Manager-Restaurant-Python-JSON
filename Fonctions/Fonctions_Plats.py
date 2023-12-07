@@ -50,17 +50,36 @@ class Plats:
         print(f"Les informations du plat ont été sauvegardées dans {nom_fichier}.")
 
     @staticmethod
-    def afficher_dernier_message():
+    def afficher_message_par_id():
         nom_fichier = "./json/plats.json"
+
+        plat_id = input("Veuillez entrer l'ID du plat pour afficher ses informations : ")
 
         try:
             with open(nom_fichier, 'r') as fichier:
                 data = json.load(fichier)
-                message = data.get("message")
-                if message:
-                    print(f"Le dernier message dans {nom_fichier} est : {message}")
+                if data and isinstance(data, list):
+                    plat_trouve = False
+                    for plat in data:
+                        if str(plat['id']) == str(plat_id):
+                            nom = plat.get("nom")
+                            description = plat.get("description")
+                            prix = plat.get("prix")
+                            categorie = plat.get("categorie")
+
+                            if nom and description and prix and categorie:
+                                print(f"Informations du plat avec l'ID {plat_id} :")
+                                print(f"Nom: {nom}")
+                                print(f"Description: {description}")
+                                print(f"Prix: {prix}")
+                                print(f"Categorie: {categorie}")
+                                plat_trouve = True
+                                break
+
+                    if not plat_trouve:
+                        print(f"Aucun plat avec l'ID {plat_id} trouvé.")
                 else:
-                    print(f"Aucun message trouvé dans {nom_fichier}.")
+                    print(f"Aucune donnée valide dans {nom_fichier}.")
         except FileNotFoundError:
             print(f"Le fichier {nom_fichier} n'existe pas.")
 
