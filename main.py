@@ -1,6 +1,7 @@
 from Fonctions.Connexion import Connexion
 from Fonctions.inscription import Inscription
 from Fonctions.Fonctions_Plats import Plats
+from Fonctions.Fonctions_Commandes import Commandes
 
 while True:
     choix_connexion = input("Souhaitez-vous vous connecter (c) ou vous inscrire (i) ? (c/i/q pour quitter) : ")
@@ -29,14 +30,16 @@ while True:
         choix = input(
             "Que souhaitez-vous faire ? (1 pour écrire un plat, 2 pour voir le dernier plat, 3 pour afficher les "
             "commandes d'un client, 4 pour modifier les informations d'un client, 5 pour supprimer un client, "
-            "6 pour modifier un plat, 7 pour supprimer un plat, q pour quitter) : ")
+            "6 pour modifier un plat, 7 pour supprimer un plat, 8 pour crée une commande, 9 pour afficher la commande "
+            "d'un client q pour quitter) : ")
 
         if choix == "1":
             Plats.ecrire_plat()
         elif choix == "2":
             Plats.afficher_message_par_id()
         elif choix == "3":
-            input("")
+            client_id = input("Veuillez entrer l'ID du client pour afficher ses commandes : ")
+            Plats.afficher_commande_par_client_id(client_id)
         elif choix == "4":
             identifiant_a_modifier = input("Entrez l'identifiant du client à modifier : ")
             nouveau_prenom = input("Entrez le nouveau prenom : ")
@@ -71,6 +74,14 @@ while True:
         elif choix == "7":
             plat_a_supprimer = input("Entrez l'ID du plat à supprimer : ")
             Plats.supprimer_plat(plat_a_supprimer)
+        elif choix == "8":
+            client_id = input("Veuillez entrer l'ID du client pour lequel vous souhaitez créer une commande : ")
+            plats_commandes = input("Entrez la liste des ID des plats commandés (séparés par des virgules) : ").split(
+                ',')
+            Commandes.creer_commande(client_id, plats_commandes)
+        elif choix == "9":
+            client_id = input("Veuillez entrer l'ID du client pour afficher sa commande : ")
+            Commandes.afficher_commande_par_client_id(client_id)
         elif choix.lower() == "q":
             print("Au revoir !")
             break
