@@ -1,5 +1,6 @@
 import json
 import os
+import csv
 
 
 class Commandes:
@@ -61,3 +62,23 @@ class Commandes:
 
         print(f"La commande pour le client avec l'ID {client_id} a été enregistrée.")
 
+    @classmethod
+    def exporter_commandes(cls):
+        nom_fichier_json = "./json/commandes.json"
+        nom_fichier_csv = "./export/donnees.csv"
+
+        if os.path.exists(nom_fichier_json):
+            with open(nom_fichier_json, 'r') as fichier_json:
+                data = json.load(fichier_json)
+        else:
+            data = []
+
+        with open(nom_fichier_csv, 'w', newline='', encoding='utf-8') as fichier_csv:
+            writer = csv.writer(fichier_csv)
+            if data:
+                writer.writerow(
+                    data[0].keys())
+                for ligne in data:
+                    writer.writerow(ligne.values())
+
+        print(f"Les données ont été exportées vers '{nom_fichier_csv}'.")

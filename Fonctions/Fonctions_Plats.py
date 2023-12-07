@@ -155,4 +155,3 @@ class Plats:
                     print(f"Aucune commande trouvée pour le client avec l'ID {client_id}.")
         else:
             print(f"Le fichier des commandes {nom_fichier} n'existe pas.")
-
