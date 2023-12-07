@@ -31,7 +31,7 @@ while True:
             "Que souhaitez-vous faire ? (1 pour écrire un plat, 2 pour voir le dernier plat, 3 pour afficher les "
             "commandes d'un client, 4 pour modifier les informations d'un client, 5 pour supprimer un client, "
             "6 pour modifier un plat, 7 pour supprimer un plat, 8 pour crée une commande, 9 pour afficher la commande "
-            "d'un client q pour quitter) : ")
+            "d'un client, 10 pour exporter les commandes q pour quitter) : ")
 
         if choix == "1":
             Plats.ecrire_plat()
@@ -46,7 +46,8 @@ while True:
             nouveau_nom = input("Entrez le nouveau nom : ")
             nouveau_numero_telephone = input("Entrez le nouveau numéro de téléphone : ")
             nouveau_mot_de_passe = input("Entrez le nouveau mot de passe : ")
-            Connexion.modifier_infos_client(identifiant_a_modifier, nouveau_numero_telephone, nouveau_nom, nouveau_prenom, nouveau_mot_de_passe)
+            Connexion.modifier_infos_client(identifiant_a_modifier, nouveau_numero_telephone, nouveau_nom,
+                                            nouveau_prenom, nouveau_mot_de_passe)
         elif choix == "5":
             identifiant_a_supprimer = input("Entrez l'identifiant du client à supprimer : ")
             Connexion.supprimer_client(identifiant_a_supprimer)
@@ -82,6 +83,8 @@ while True:
         elif choix == "9":
             client_id = input("Veuillez entrer l'ID du client pour afficher sa commande : ")
             Commandes.afficher_commande_par_client_id(client_id)
+        elif choix == "10":
+            Commandes.exporter_commandes()
         elif choix.lower() == "q":
             print("Au revoir !")
             break
