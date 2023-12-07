@@ -31,7 +31,7 @@ while True:
             "Que souhaitez-vous faire ? (1 pour écrire un plat, 2 pour voir le dernier plat, 3 pour afficher les "
             "commandes d'un client, 4 pour modifier les informations d'un client, 5 pour supprimer un client, "
             "6 pour modifier un plat, 7 pour supprimer un plat, 8 pour crée une commande, 9 pour afficher la commande "
-            "d'un client, 10 pour exporter les commandes q pour quitter) : ")
+            "d'un client, 10 pour exporter les commandes, 11 pour voir la facture q pour quitter) : ")
 
         if choix == "1":
             Plats.ecrire_plat()
@@ -79,12 +79,20 @@ while True:
             client_id = input("Veuillez entrer l'ID du client pour lequel vous souhaitez créer une commande : ")
             plats_commandes = input("Entrez la liste des ID des plats commandés (séparés par des virgules) : ").split(
                 ',')
+
+            montant_facture = input("Entrez le montant de la facture en euros : ")
+            facture_associee = f"{montant_facture} €"
+
             Commandes.creer_commande(client_id, plats_commandes)
         elif choix == "9":
             client_id = input("Veuillez entrer l'ID du client pour afficher sa commande : ")
             Commandes.afficher_commande_par_client_id(client_id)
         elif choix == "10":
             Commandes.exporter_commandes()
+        elif choix == "11":
+            commande_id = input("Veuillez entrer l'ID de la commande pour voir la facture : ")
+            facture_associee = Commandes.obtenir_facture_par_commande_id(commande_id)
+            print(facture_associee)
         elif choix.lower() == "q":
             print("Au revoir !")
             break
