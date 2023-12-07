@@ -5,5 +5,29 @@
         "plats": [
             "a"
         ]
+    },
+    {
+        "id": 2,
+        "client_id": "2",
+        "plats": [
+            "a"
+        ],
+        "facture": "Aucune facture associ\u00e9e \u00e0 cette commande."
+    },
+    {
+        "id": 3,
+        "client_id": "3",
+        "plats": [
+            "a"
+        ],
+        "facture": "a \u20ac"
+    },
+    {
+        "id": 4,
+        "client_id": "4",
+        "plats": [
+            "m"
+        ],
+        "facture": "54.43 \u20ac"
     }
 ]
