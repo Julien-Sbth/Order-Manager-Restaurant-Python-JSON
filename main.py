@@ -27,11 +27,18 @@ while True:
         print("Choix invalide. Veuillez choisir c pour vous connecter, i pour vous inscrire ou q pour quitter.")
 
     while True:
-        choix = input(
-            "Que souhaitez-vous faire ? (1 pour écrire un plat, 2 pour voir le dernier plat, 3 pour afficher les "
-            "commandes d'un client, 4 pour modifier les informations d'un client, 5 pour supprimer un client, "
-            "6 pour modifier un plat, 7 pour supprimer un plat, 8 pour crée une commande, 9 pour afficher la commande "
-            "d'un client, 10 pour exporter les commandes, 11 pour voir la facture q pour quitter) : ")
+        print("1 Pour écrire un plat")
+        print("2 Pour voir le dernier plat")
+        print("3 Pour afficher les commandes d'un client")
+        print("4 Pour modifier les informations d'un client")
+        print("5 Pour supprimer un client")
+        print("6 Pour modifier un plat")
+        print("7 Pour supprimer un plat")
+        print("8 Pour crée une commande pour un client")
+        print("9 Pour afficher la commande d'un client")
+        print("10 Pour exporter les commandes")
+        print("11 Pour voir la facture d'un client")
+        choix = input("Entrez votre choix (ou 'q' pour quitter) : ")
 
         if choix == "1":
             Plats.ecrire_plat()
