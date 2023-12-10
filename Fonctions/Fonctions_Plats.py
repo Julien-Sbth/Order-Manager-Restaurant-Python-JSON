@@ -33,7 +33,7 @@ class Plats:
             data = []
 
         dernier_id = max([int(plat.get("id", 0)) for plat in data], default=0)
-        nouvel_id = str(dernier_id + 1)  # Conversion de l'ID en chaîne de caractères
+        nouvel_id = str(dernier_id + 1)
 
         nouveau_plat = {
             "id": nouvel_id,
@@ -173,10 +173,8 @@ class Plats:
                 plats_populaires_ids = [plat_id for plat_id, count in compteur_plats.most_common(nb_plats)]
                 details_plats_populaires = [plat for plat in plats if plat['id'] in plats_populaires_ids]
 
-                # Mélanger aléatoirement les plats populaires
                 random.shuffle(details_plats_populaires)
 
-                # Obtenir une liste aléatoire de plats parmi les plus populaires
                 plats_aleatoires = random.sample(details_plats_populaires, min(len(details_plats_populaires), nb_plats))
 
                 return plats_aleatoires

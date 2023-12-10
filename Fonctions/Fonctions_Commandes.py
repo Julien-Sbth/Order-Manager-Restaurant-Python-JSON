@@ -50,7 +50,6 @@ class Commandes:
         dernier_id = max([commande.get('id_commande', 0) for commande in data], default=0)
         nouvel_id = dernier_id + 1
 
-        # Calcul du montant total des plats commandés
         nom_fichier_plats = "./json/plats.json"
         total_plats = 0.0
 
@@ -67,7 +66,7 @@ class Commandes:
             "id_commande": nouvel_id,
             "client_id": client_id,
             "plats": plats_commandes,
-            "facture": round(total_plats, 2)  # Montant total calculé à partir des plats commandés
+            "facture": round(total_plats, 2)
         }
 
         data.append(nouvelle_commande)
