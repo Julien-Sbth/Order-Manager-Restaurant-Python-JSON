@@ -38,6 +38,7 @@ while True:
         print("9 Pour afficher la commande d'un client")
         print("10 Pour exporter les commandes")
         print("11 Pour voir la facture d'un client")
+        print("12 Pour visualiser les plats populaires")
         choix = input("Entrez votre choix (ou 'q' pour quitter) : ")
 
         if choix == "1":
@@ -100,6 +101,16 @@ while True:
             commande_id = input("Veuillez entrer l'ID de la commande pour voir la facture : ")
             facture_associee = Commandes.obtenir_facture_par_commande_id(commande_id)
             print(facture_associee)
+        elif choix == "12":
+            plats_populaires = Plats.plats_populaires()  # Appel de la méthode statique
+            if plats_populaires:
+                print("Plats populaires :")
+                for plat in plats_populaires:
+                    print(
+                        f"Nom: {plat["nom"]}, Description: {plat["description"]}, Prix: {plat["prix"]}, Categorie: {plat["categorie"]}")
+            else:
+                print("Aucun plat populaire trouvé.")
+
         elif choix.lower() == "q":
             print("Au revoir !")
             break
