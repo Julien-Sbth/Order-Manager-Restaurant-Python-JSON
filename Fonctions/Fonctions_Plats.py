@@ -1,6 +1,7 @@
 import json
 import os
-
+from collections import Counter
+import random
 
 class Plats:
     def __init__(self):
@@ -31,8 +32,8 @@ class Plats:
         else:
             data = []
 
-        dernier_id = max([plat.get('id', 0) for plat in data], default=0)
-        nouvel_id = dernier_id + 1
+        dernier_id = max([int(plat.get("id", 0)) for plat in data], default=0)
+        nouvel_id = str(dernier_id + 1)  # Conversion de l'ID en chaîne de caractères
 
         nouveau_plat = {
             "id": nouvel_id,
@@ -61,7 +62,7 @@ class Plats:
                 if data and isinstance(data, list):
                     plat_trouve = False
                     for plat in data:
-                        if str(plat['id']) == str(plat_id):
+                        if str(plat["id"]) == str(plat_id):
                             nom = plat.get("nom")
                             description = plat.get("description")
                             prix = plat.get("prix")
@@ -155,3 +156,30 @@ class Plats:
                     print(f"Aucune commande trouvée pour le client avec l'ID {client_id}.")
         else:
             print(f"Le fichier des commandes {nom_fichier} n'existe pas.")
+
+    @staticmethod
+    def plats_populaires(nb_plats=15):
+        nom_fichier_commandes = "./json/commandes.json"
+        nom_fichier_plats = "./json/plats.json"
+
+        if os.path.exists(nom_fichier_commandes) and os.path.exists(nom_fichier_plats):
+            with open(nom_fichier_commandes, 'r') as fichier_commandes, open(nom_fichier_plats, 'r') as fichier_plats:
+                commandes = json.load(fichier_commandes)
+                plats = json.load(fichier_plats)
+
+                plats_commandes = [plat_id for commande in commandes for plat_id in commande.get('plats', [])]
+                compteur_plats = Counter(plats_commandes)
+
+                plats_populaires_ids = [plat_id for plat_id, count in compteur_plats.most_common(nb_plats)]
+                details_plats_populaires = [plat for plat in plats if plat['id'] in plats_populaires_ids]
+
+                # Mélanger aléatoirement les plats populaires
+                random.shuffle(details_plats_populaires)
+
+                # Obtenir une liste aléatoire de plats parmi les plus populaires
+                plats_aleatoires = random.sample(details_plats_populaires, min(len(details_plats_populaires), nb_plats))
+
+                return plats_aleatoires
+        else:
+            print("Les fichiers de commandes ou de plats n'existent pas.")
+
