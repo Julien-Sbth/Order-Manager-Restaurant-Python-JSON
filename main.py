@@ -88,9 +88,6 @@ while True:
             plats_commandes = input("Entrez la liste des ID des plats commandés (séparés par des virgules) : ").split(
                 ',')
 
-            montant_facture = input("Entrez le montant de la facture en euros : ")
-            facture_associee = f"{montant_facture} €"
-
             Commandes.creer_commande(client_id, plats_commandes)
         elif choix == "9":
             client_id = input("Veuillez entrer l'ID du client pour afficher sa commande : ")
