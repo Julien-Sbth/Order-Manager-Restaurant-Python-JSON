@@ -1,23 +1,37 @@
 [
     {
-        "id": 1,
-        "nom": "aze",
-        "description": "aze",
-        "prix": "aze",
-        "categorie": "aze"
+        "id": "1",
+        "nom": "Pizza",
+        "description": "Pizza Tres bonne",
+        "prix": "20.00",
+        "categorie": "Pizza"
     },
     {
-        "id": 2,
+        "id": "2",
         "nom": "test",
         "description": "test",
-        "prix": "test",
+        "prix": "20.00",
         "categorie": "test"
     },
     {
-        "id": 3,
-        "nom": "test",
-        "description": "test",
-        "prix": "test",
-        "categorie": "test"
+        "id": "3",
+        "nom": "Sushi",
+        "description": "Sushi avec Sauce Barbecue",
+        "prix": "25.00",
+        "categorie": "Plat"
+    },
+    {
+        "id": "4",
+        "nom": "Sushi",
+        "description": "Sushi",
+        "prix": "25.00",
+        "categorie": "Sushi"
+    },
+    {
+        "id": "5",
+        "nom": "Patate",
+        "description": "Patate",
+        "prix": "25.00",
+        "categorie": "Patate"
     }
 ]
