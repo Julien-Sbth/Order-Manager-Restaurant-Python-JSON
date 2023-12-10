@@ -65,7 +65,7 @@ class Commandes:
             "id_commande": nouvel_id,
             "client_id": client_id,
             "plats": plats_commandes,
-            "montant": round(total_plats, 2)  # Montant total calculé à partir des plats commandés
+            "facture": round(total_plats, 2)  # Montant total calculé à partir des plats commandés
         }
 
         data.append(nouvelle_commande)
@@ -104,8 +104,11 @@ class Commandes:
             with open(nom_fichier, 'r') as fichier:
                 data = json.load(fichier)
                 for commande in data:
-                    if str(commande['id']) == str(commande_id):
-                        return commande.get('facture')
+                    if str(commande['id_commande']) == str(commande_id):
+                        return commande.get('facture', "Aucune facture associée à cette commande.")
                 return "Aucune facture associée à cette commande."
         else:
             return "Le fichier des commandes n'existe pas."
+
+
+

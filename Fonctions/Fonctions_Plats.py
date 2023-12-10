@@ -147,7 +147,7 @@ class Plats:
                 data = json.load(fichier)
                 for commande in data:
                     if str(commande['client_id']) == str(client_id):
-                        print(f"Commande ID : {commande['id']}")
+                        print(f"Commande ID : {commande['id_commande']}")
                         print(f"Client ID : {commande['client_id']}")
                         print(f"Plats commandés : {commande['plats']}")
                         commande_trouvee = True
