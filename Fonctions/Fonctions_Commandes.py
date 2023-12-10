@@ -57,9 +57,11 @@ class Commandes:
         if os.path.exists(nom_fichier_plats):
             with open(nom_fichier_plats, 'r') as fichier_plats:
                 plats = json.load(fichier_plats)
-                for plat in plats:
-                    if plat['id'] in plats_commandes:
-                        total_plats += float(plat['prix'].replace(' €', ''))
+                plats_dict = {plat['nom']: float(plat['prix'].replace(' €', '').replace(',', '.')) for plat in plats}
+
+                for plat_commande in plats_commandes:
+                    if plat_commande in plats_dict:
+                        total_plats += plats_dict[plat_commande]
 
         nouvelle_commande = {
             "id_commande": nouvel_id,
