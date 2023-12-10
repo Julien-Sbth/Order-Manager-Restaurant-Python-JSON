@@ -160,7 +160,7 @@ class Plats:
             print(f"Le fichier des commandes {nom_fichier} n'existe pas.")
 
     @staticmethod
-    def plats_populaires(nb_plats=15):
+    def plats_populaires(nb_plats=5):
         nom_fichier_commandes = "./json/commandes.json"
         nom_fichier_plats = "./json/plats.json"
 
@@ -173,7 +173,7 @@ class Plats:
                 compteur_plats = Counter(plats_commandes)
 
                 plats_populaires_ids = [plat_id for plat_id, count in compteur_plats.most_common(nb_plats)]
-                details_plats_populaires = [plat for plat in plats if plat['id'] in plats_populaires_ids]
+                details_plats_populaires = [plat for plat in plats if plat['nom'] in plats_populaires_ids]
 
                 random.shuffle(details_plats_populaires)
 
