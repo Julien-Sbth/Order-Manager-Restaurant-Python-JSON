@@ -2,36 +2,85 @@
     {
         "id": "1",
         "nom": "Pizza",
-        "description": "Pizza Tres bonne",
-        "prix": "20.00",
-        "categorie": "Pizza"
-    },
-    {
-        "id": "2",
-        "nom": "test",
-        "description": "test",
-        "prix": "20.00",
-        "categorie": "test"
-    },
-    {
-        "id": "3",
-        "nom": "Sushi",
-        "description": "Sushi avec Sauce Barbecue",
+        "description": "Pizza",
         "prix": "25.00",
         "categorie": "Plat"
     },
     {
+        "id": "2",
+        "nom": "Taboulet",
+        "description": "Taboulet avec de la viande",
+        "prix": "7.27",
+        "categorie": "Plat"
+    },
+    {
+        "id": "3",
+        "nom": "Lasagne",
+        "description": "Lasagne avec fromages et viandes",
+        "prix": "17.75",
+        "categorie": "Entrer"
+    },
+    {
         "id": "4",
-        "nom": "Sushi",
-        "description": "Sushi",
-        "prix": "25.00",
-        "categorie": "Sushi"
+        "nom": "Gateau",
+        "description": "Gateau au chocolat",
+        "prix": "18.00",
+        "categorie": "Dessert"
     },
     {
         "id": "5",
-        "nom": "Patate",
-        "description": "Patate",
-        "prix": "25.00",
-        "categorie": "Patate"
+        "nom": "Sushi",
+        "description": "Sushi avec de la sauce samourai",
+        "prix": "18.50",
+        "categorie": "Plat"
+    },
+    {
+        "id": "6",
+        "nom": "Burger McDonald",
+        "description": "Viande, Sauce Ketchup, Salade",
+        "prix": "9.50",
+        "categorie": "Plat"
+    },
+    {
+        "id": "7",
+        "nom": "Tacos mexicains",
+        "description": "Tacos avec de la bonne viande",
+        "prix": "15.00",
+        "categorie": "Plat"
+    },
+    {
+        "id": "8",
+        "nom": "P\u00c3\u00a2tes carbonara",
+        "description": "P\u00c3\u00a2tes carbonara",
+        "prix": "17.75",
+        "categorie": "Plat"
+    },
+    {
+        "id": "9",
+        "nom": "Lasagne",
+        "description": "Lasagne avec fromages et viandes",
+        "prix": "17.75",
+        "categorie": "Entrer"
+    },
+    {
+        "id": "10",
+        "nom": "Pizza Margherita",
+        "description": "Pizza Margherita",
+        "prix": "10.00",
+        "categorie": "Plat"
+    },
+    {
+        "id": "11",
+        "nom": "Crevettes saut\u00c3\u00a9es \u00c3\u00a0 l'ail",
+        "description": "Crevettes saut\u00c3\u00a9es \u00c3\u00a0 l'ail",
+        "prix": "13.75",
+        "categorie": "Entrer"
+    },
+    {
+        "id": "12",
+        "nom": "Poulet r\u00f4ti",
+        "description": "Poulet r\u00f4ti ",
+        "prix": "19.81",
+        "categorie": "Plat"
     }
 ]

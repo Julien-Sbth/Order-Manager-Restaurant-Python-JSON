@@ -1,37 +1,51 @@
 [
     {
+        "id_commande": 1,
+        "client_id": "1",
+        "plats": [
+            "Pizza"
+        ],
+        "facture": 25.0
+    },
+    {
+        "id_commande": 2,
+        "client_id": "2",
+        "plats": [
+            "Taboulet"
+        ],
+        "facture": 7.27
+    },
+    {
+        "id_commande": 3,
+        "client_id": "3",
+        "plats": [
+            "Pizza",
+            "Taboulet"
+        ],
+        "facture": 32.27
+    },
+    {
+        "id_commande": 4,
+        "client_id": "4",
+        "plats": [
+            "Lasagne"
+        ],
+        "facture": 17.75
+    },
+    {
         "id_commande": 5,
         "client_id": "5",
         "plats": [
-            "1",
-            "5"
+            "Pizza Margherita"
         ],
-        "montant": 0.0
+        "facture": 10.0
     },
     {
         "id_commande": 6,
-        "client_id": "1",
+        "client_id": "6",
         "plats": [
-            "1",
-            " 6"
+            "Tacos mexicains"
         ],
-        "montant": 0.0
-    },
-    {
-        "id_commande": 7,
-        "client_id": "7",
-        "plats": [
-            "test",
-            "test"
-        ],
-        "montant": 0.0
-    },
-    {
-        "id_commande": 8,
-        "client_id": "8",
-        "plats": [
-            "6"
-        ],
-        "montant": 20.0
+        "facture": 15.0
     }
 ]
