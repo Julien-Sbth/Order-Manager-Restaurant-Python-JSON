@@ -41,7 +41,7 @@ class Commandes:
     def creer_commande(client_id, plats_commandes):
         nom_fichier = "./json/commandes.json"
 
-        if os.path.exists(nom_fichier):
+        if os.path.exists(nom_fichier) and os.path.getsize(nom_fichier) > 0:
             with open(nom_fichier, 'r') as fichier:
                 data = json.load(fichier)
         else:
@@ -53,10 +53,10 @@ class Commandes:
         nom_fichier_plats = "./json/plats.json"
         total_plats = 0.0
 
-        if os.path.exists(nom_fichier_plats):
+        if os.path.exists(nom_fichier_plats) and os.path.getsize(nom_fichier_plats) > 0:
             with open(nom_fichier_plats, 'r') as fichier_plats:
                 plats = json.load(fichier_plats)
-                plats_dict = {plat['nom']: float(plat['prix']) for plat in plats}
+                plats_dict = {plat['nom']: float(plat['prix'][:-2]) for plat in plats}
 
                 for plat_commande in plats_commandes:
                     if plat_commande in plats_dict:
@@ -110,6 +110,3 @@ class Commandes:
                 return "Aucune facture associée à cette commande."
         else:
             return "Le fichier des commandes n'existe pas."
-
-
-

@@ -3,6 +3,7 @@ import os
 from collections import Counter
 import random
 
+
 class Plats:
     def __init__(self):
         pass
@@ -27,7 +28,7 @@ class Plats:
         categorie = input("Veuillez entrer la catégorie de votre plat : ")
         nom_fichier = "./json/plats.json"
 
-        if os.path.exists(nom_fichier):
+        if os.path.exists(nom_fichier) and os.path.getsize(nom_fichier) > 0:
             with open(nom_fichier, 'r') as fichier:
                 data = json.load(fichier)
         else:
@@ -40,7 +41,7 @@ class Plats:
             "id": nouvel_id,
             "nom": nom,
             "description": description,
-            "prix": prix_str,  # Le prix est une chaîne avec le symbole '€'
+            "prix": prix_str,
             "categorie": categorie
         }
 
@@ -181,4 +182,3 @@ class Plats:
                 return plats_aleatoires
         else:
             print("Les fichiers de commandes ou de plats n'existent pas.")
-
