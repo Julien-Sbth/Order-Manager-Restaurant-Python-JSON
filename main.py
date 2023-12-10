@@ -6,6 +6,10 @@ from Fonctions.Fonctions_Commandes import Commandes
 while True:
     choix_connexion = input("Souhaitez-vous vous connecter (c) ou vous inscrire (i) ? (c/i/q pour quitter) : ")
 
+    while choix_connexion.lower() not in ["c", "i"]:
+        print("Choix invalide. Veuillez entrer 'c' pour connexion ou 'i' pour inscription.")
+        choix_connexion = input("Veuillez choisir 'c' pour connexion ou 'i' pour inscription : ")
+
     if choix_connexion.lower() == "c":
         prenom = input("Entrez votre Prénom : ")
         mot_de_passe = input("Entrez votre Mot de passe : ")
@@ -20,6 +24,8 @@ while True:
         mot_de_passe = input("Veuillez entrer votre mot de passe : ")
 
         inscription = Inscription(prenom, nom, numero_telephone, mot_de_passe)
+        # Suite du traitement d'inscription
+
     elif choix_connexion.lower() == "q":
         print("Au revoir !")
         break
