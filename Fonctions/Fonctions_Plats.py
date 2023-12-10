@@ -22,7 +22,8 @@ class Plats:
     def ecrire_plat():
         nom = input("Veuillez entrer un nom de votre plat : ")
         description = input("Veuillez entrer une description de votre plat : ")
-        prix = input("Veuillez entrer le prix de votre plat : ")
+        prix = float(input("Veuillez entrer le prix de votre plat : "))
+        prix_str = f"{prix:.3f} €"  # Convertir le prix en chaîne avec le symbole '€' à la fin
         categorie = input("Veuillez entrer la catégorie de votre plat : ")
         nom_fichier = "./json/plats.json"
 
@@ -39,7 +40,7 @@ class Plats:
             "id": nouvel_id,
             "nom": nom,
             "description": description,
-            "prix": prix,
+            "prix": prix_str,  # Le prix est une chaîne avec le symbole '€'
             "categorie": categorie
         }
 
