@@ -47,5 +47,21 @@
             "Tacos mexicains"
         ],
         "facture": 15.0
+    },
+    {
+        "id_commande": 7,
+        "client_id": "7",
+        "plats": [
+            "Lasagne"
+        ],
+        "facture": 17.75
+    },
+    {
+        "id_commande": 8,
+        "client_id": "q",
+        "plats": [
+            "q"
+        ],
+        "facture": 0.0
     }
 ]
