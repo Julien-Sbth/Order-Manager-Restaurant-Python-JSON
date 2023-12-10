@@ -10,7 +10,6 @@ class Inscription(Clients):
         self.numero_telephone = numero_telephone
         self.mot_de_passe = mot_de_passe
         self.identifiant = None
-        self.charger_compteur()
         self.attribuer_identifiant()
 
     def attribuer_identifiant(self):
@@ -19,8 +18,6 @@ class Inscription(Clients):
         dernier_identifiant = int(dernier_identifiant)
 
         self.identifiant = str(dernier_identifiant + 1)
-
-        self.enregistrer_compteur()
 
         data = {
             "identifiant": self.identifiant,
