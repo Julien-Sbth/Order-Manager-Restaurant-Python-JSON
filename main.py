@@ -35,16 +35,16 @@ while True:
     while True:
         print("1 Pour écrire un plat")
         print("2 Pour voir le dernier plat")
+        print("6 Pour modifier un plat")
+        print("7 Pour supprimer un plat")
+        print("12 Pour visualiser les plats populaires")
         print("3 Pour afficher les commandes d'un client")
         print("4 Pour modifier les informations d'un client")
         print("5 Pour supprimer un client")
-        print("6 Pour modifier un plat")
-        print("7 Pour supprimer un plat")
         print("8 Pour crée une commande pour un client")
         print("9 Pour afficher la commande d'un client")
         print("10 Pour exporter les commandes")
         print("11 Pour voir la facture d'un client")
-        print("12 Pour visualiser les plats populaires")
         choix = input("Entrez votre choix (ou 'q' pour quitter) : ")
 
         if choix == "1":
