@@ -50,22 +50,21 @@ class Commandes:
         dernier_id = max([commande.get('id_commande', 0) for commande in data], default=0)
         nouvel_id = dernier_id + 1
 
-        nom_fichier_plats = "./json/plats.json"
+        with open("./json/plats.json", 'r') as fichier_plats:
+            plats_disponibles = json.load(fichier_plats)
+
+        plats_dict = {plat['nom']: float(plat['prix'][:-2]) for plat in plats_disponibles}
         total_plats = 0.0
 
-        if os.path.exists(nom_fichier_plats) and os.path.getsize(nom_fichier_plats) > 0:
-            with open(nom_fichier_plats, 'r') as fichier_plats:
-                plats = json.load(fichier_plats)
-                plats_dict = {plat['nom']: float(plat['prix'][:-2]) for plat in plats}
-
-                for plat_commande in plats_commandes:
-                    if plat_commande in plats_dict:
-                        total_plats += plats_dict[plat_commande]
+        for plat_commande in plats_commandes:
+            plat_commande = plat_commande.strip()
+            if plat_commande in plats_dict:
+                total_plats += plats_dict[plat_commande]
 
         nouvelle_commande = {
             "id_commande": nouvel_id,
             "client_id": client_id,
-            "plats": plats_commandes,
+            "plats": [plat.strip() for plat in plats_commandes],
             "facture": round(total_plats, 2)
         }
 
