@@ -103,27 +103,8 @@ while True:
 
         if choix == "9":
             client_id = input("Veuillez entrer l'ID du client pour lequel vous souhaitez créer une commande : ")
-            with open("./json/plats.json", 'r') as fichier_plats:
-                plats = json.load(fichier_plats)
-
-                print("Liste des plats disponibles :")
-
-                for plat in plats:
-                    plat_id = plat.get('id')
-                    plat_name = plat.get('nom')
-                    plat_description = plat.get('description')
-                    plat_prix = plat.get('prix')
-                    plat_categorie = plat.get('categorie')
-                    print(f"ID : {plat_id}")
-                    print(f"Nom : {plat_name}")
-                    print(f"Description : {plat_description}")
-                    print(f"Prix : {plat_prix}")
-                    print(f"Catégorie : {plat_categorie}")
-                    print("------------")
-
             plats_commandes = input("Entrez la liste des noms des plats commandés (séparés par des virgules) : ").split(
                 ',')
-
             Commandes.creer_commande(client_id, plats_commandes)
 
         elif choix == "10":
@@ -152,5 +133,4 @@ while True:
             print("Au revoir !")
             break
         else:
-            print("Choix invalide. Veuillez choisir 1, 2, 3, 4, 5, 6 pour modifier un plat, 7 pour supprimer un plat,"
-                  "ou q pour quitter.")
+            print("Choix invalide. Veuillez choisir 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14 ou q pour quitter.")

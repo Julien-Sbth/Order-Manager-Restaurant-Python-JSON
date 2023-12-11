@@ -39,6 +39,22 @@ class Commandes:
 
     @staticmethod
     def creer_commande(client_id, plats_commandes):
+        with open("./json/plats.json", 'r') as fichier_plats:
+            plats = json.load(fichier_plats)
+            print("Liste des plats disponibles :")
+            for plat in plats:
+                plat_id = plat.get('id')
+                plat_name = plat.get('nom')
+                plat_description = plat.get('description')
+                plat_prix = plat.get('prix')
+                plat_categorie = plat.get('categorie')
+                print(f"ID : {plat_id}")
+                print(f"Nom : {plat_name}")
+                print(f"Description : {plat_description}")
+                print(f"Prix : {plat_prix}")
+                print(f"Catégorie : {plat_categorie}")
+                print("------------")
+
         nom_fichier = "./json/commandes.json"
 
         if os.path.exists(nom_fichier) and os.path.getsize(nom_fichier) > 0:
@@ -50,10 +66,8 @@ class Commandes:
         dernier_id = max([commande.get('id_commande', 0) for commande in data], default=0)
         nouvel_id = dernier_id + 1
 
-        with open("./json/plats.json", 'r') as fichier_plats:
-            plats_disponibles = json.load(fichier_plats)
-
-        plats_dict = {plat['nom']: float(plat['prix'][:-2]) for plat in plats_disponibles}
+        # Le reste du code pour la création de commande...
+        plats_dict = {plat['nom']: float(plat['prix'][:-2]) for plat in plats}
         total_plats = 0.0
 
         for plat_commande in plats_commandes:
