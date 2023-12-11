@@ -46,6 +46,7 @@ while True:
         print("11 Pour exporter les commandes")
         print("12 Pour voir la facture d'un client")
         print("13 Pour enregistrer un nouveau client")
+        print("14 Voir vos recommandations basé sur vos préférences")
         choix = input("Entrez votre choix (ou 'q' pour quitter) : ")
 
         if choix == "1":
@@ -101,11 +102,8 @@ while True:
             Connexion.supprimer_client(identifiant_a_supprimer)
 
         if choix == "9":
-
             client_id = input("Veuillez entrer l'ID du client pour lequel vous souhaitez créer une commande : ")
-
             with open("./json/plats.json", 'r') as fichier_plats:
-
                 plats = json.load(fichier_plats)
 
                 print("Liste des plats disponibles :")
@@ -145,6 +143,10 @@ while True:
             mot_de_passe = input("Veuillez entrer votre mot de passe : ")
 
             inscription = Inscription(prenom, nom, numero_telephone, mot_de_passe)
+
+        elif choix == "14":
+            client_id = input("Veuillez entrer l'ID du client pour obtenir des recommandations : ")
+            Commandes.Recommendation(client_id)
 
         elif choix.lower() == "q":
             print("Au revoir !")
