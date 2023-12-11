@@ -2,7 +2,6 @@ from Fonctions.Connexion import Connexion
 from Fonctions.inscription import Inscription
 from Fonctions.Fonctions_Plats import Plats
 from Fonctions.Fonctions_Commandes import Commandes
-import json
 
 while True:
     choix_connexion = input("Souhaitez-vous vous connecter (c) ou vous inscrire (i) ? (c/i/q pour quitter) : ")
@@ -19,11 +18,17 @@ while True:
         connexion.connecter()
 
     elif choix_connexion.lower() == "i":
+
         prenom = input("Veuillez entrer votre prénom : ")
         nom = input("Veuillez entrer votre nom : ")
-        numero_telephone = input("Veuillez entrer votre numéro de téléphone : ")
-        mot_de_passe = input("Veuillez entrer votre mot de passe : ")
 
+        while True:
+            numero_telephone = input("Veuillez entrer votre numéro de téléphone : ")
+            if numero_telephone.isdigit():
+                break
+            else:
+                print("Le numéro de téléphone doit contenir uniquement des chiffres. Veuillez réessayer.")
+        mot_de_passe = input("Veuillez entrer votre mot de passe : ")
         inscription = Inscription(prenom, nom, numero_telephone, mot_de_passe)
 
     elif choix_connexion.lower() == "q":
