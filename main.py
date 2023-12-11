@@ -102,11 +102,7 @@ while True:
 
         if choix == "9":
 
-            # Demande à l'utilisateur de saisir client_id
-
             client_id = input("Veuillez entrer l'ID du client pour lequel vous souhaitez créer une commande : ")
-
-            # Affichage des détails de chaque plat disponible avant de créer la commande
 
             with open("./json/plats.json", 'r') as fichier_plats:
 
