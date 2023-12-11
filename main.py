@@ -45,6 +45,7 @@ while True:
         print("9 Pour afficher la commande d'un client")
         print("10 Pour exporter les commandes")
         print("11 Pour voir la facture d'un client")
+        print("13 Pour enregistrer un nouveau client")
         choix = input("Entrez votre choix (ou 'q' pour quitter) : ")
 
         if choix == "1":
@@ -113,6 +114,13 @@ while True:
                         f"Nom: {plat["nom"]}, Description: {plat["description"]}, Prix: {plat["prix"]}, Categorie: {plat["categorie"]}")
             else:
                 print("Aucun plat populaire trouvé.")
+        elif choix == "13":
+            prenom = input("Veuillez entrer votre prénom : ")
+            nom = input("Veuillez entrer votre nom : ")
+            numero_telephone = input("Veuillez entrer votre numéro de téléphone : ")
+            mot_de_passe = input("Veuillez entrer votre mot de passe : ")
+
+            inscription = Inscription(prenom, nom, numero_telephone, mot_de_passe)
 
         elif choix.lower() == "q":
             print("Au revoir !")
