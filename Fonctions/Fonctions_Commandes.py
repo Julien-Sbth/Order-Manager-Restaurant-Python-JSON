@@ -109,3 +109,33 @@ class Commandes:
                 return "Aucune facture associée à cette commande."
         else:
             return "Le fichier des commandes n'existe pas."
+
+    @staticmethod
+    def Recommendation(client_id):
+        nom_fichier_commandes = "./json/commandes.json"
+        nom_fichier_plats = "./json/plats.json"
+
+        if os.path.exists(nom_fichier_commandes) and os.path.exists(nom_fichier_plats):
+            with open(nom_fichier_commandes, 'r') as fichier_commandes, open(nom_fichier_plats, 'r') as fichier_plats:
+                data_commandes = json.load(fichier_commandes)
+                data_plats = json.load(fichier_plats)
+
+                commandes_client = [cmd for cmd in data_commandes if str(cmd['client_id']) == str(client_id)]
+                plats_commandes_client = [plat for cmd in commandes_client for plat in cmd['plats']]
+
+                plat_freq = {}
+                for plat in plats_commandes_client:
+                    plat_freq[plat] = plat_freq.get(plat, 0) + 1
+
+                plats_recommandes = sorted(plat_freq, key=plat_freq.get, reverse=True)
+
+                print(f"Recommandations pour le client avec l'ID {client_id}:")
+                for plat_recommande in plats_recommandes:
+                    plat_info = next((p for p in data_plats if p['nom'] == plat_recommande), None)
+                    if plat_info:
+                        print(f"Nom : {plat_info['nom']}")
+                        print(f"Description : {plat_info['description']}")
+                        print(f"Prix : {plat_info['prix']}")
+                        print("------------")
+        else:
+            print("Fichiers de commandes ou de plats non trouvés.")
