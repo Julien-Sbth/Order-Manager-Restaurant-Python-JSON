@@ -24,7 +24,6 @@ while True:
         mot_de_passe = input("Veuillez entrer votre mot de passe : ")
 
         inscription = Inscription(prenom, nom, numero_telephone, mot_de_passe)
-        # Suite du traitement d'inscription
 
     elif choix_connexion.lower() == "q":
         print("Au revoir !")
@@ -35,16 +34,16 @@ while True:
     while True:
         print("1 Pour écrire un plat")
         print("2 Pour voir le dernier plat")
-        print("6 Pour modifier un plat")
-        print("7 Pour supprimer un plat")
-        print("12 Pour visualiser les plats populaires")
-        print("3 Pour afficher les commandes d'un client")
-        print("4 Pour modifier les informations d'un client")
-        print("5 Pour supprimer un client")
-        print("8 Pour crée une commande pour un client")
-        print("9 Pour afficher la commande d'un client")
-        print("10 Pour exporter les commandes")
-        print("11 Pour voir la facture d'un client")
+        print("3 Pour modifier un plat")
+        print("4 Pour supprimer un plat")
+        print("5 Pour visualiser les plats populaires")
+        print("6 Pour afficher les commandes d'un client")
+        print("7 Pour modifier les informations d'un client")
+        print("8 Pour supprimer un client")
+        print("9 Pour crée une commande pour un client")
+        print("10 Pour afficher la commande d'un client")
+        print("11 Pour exporter les commandes")
+        print("12 Pour voir la facture d'un client")
         print("13 Pour enregistrer un nouveau client")
         choix = input("Entrez votre choix (ou 'q' pour quitter) : ")
 
@@ -53,20 +52,6 @@ while True:
         elif choix == "2":
             Plats.afficher_message_par_id()
         elif choix == "3":
-            client_id = input("Veuillez entrer l'ID du client pour afficher ses commandes : ")
-            Plats.afficher_commande_par_client_id(client_id)
-        elif choix == "4":
-            identifiant_a_modifier = input("Entrez l'identifiant du client à modifier : ")
-            nouveau_prenom = input("Entrez le nouveau prenom : ")
-            nouveau_nom = input("Entrez le nouveau nom : ")
-            nouveau_numero_telephone = input("Entrez le nouveau numéro de téléphone : ")
-            nouveau_mot_de_passe = input("Entrez le nouveau mot de passe : ")
-            Connexion.modifier_infos_client(identifiant_a_modifier, nouveau_numero_telephone, nouveau_nom,
-                                            nouveau_prenom, nouveau_mot_de_passe)
-        elif choix == "5":
-            identifiant_a_supprimer = input("Entrez l'identifiant du client à supprimer : ")
-            Connexion.supprimer_client(identifiant_a_supprimer)
-        elif choix == "6":
             plat_a_modifier = input("Entrez l'ID du plat à modifier : ")
             nouveau_nom = input("Entrez le nouveau nom : ")
             nouvelle_description = input("Entrez la nouvelle description : ")
@@ -87,26 +72,11 @@ while True:
                 "prix": nouveau_prix,
                 "categorie": nouvelle_categorie
             })
-        elif choix == "7":
+        elif choix == "4":
             plat_a_supprimer = input("Entrez l'ID du plat à supprimer : ")
             Plats.supprimer_plat(plat_a_supprimer)
-        elif choix == "8":
-            client_id = input("Veuillez entrer l'ID du client pour lequel vous souhaitez créer une commande : ")
-            plats_commandes = input("Entrez la liste des ID des plats commandés (séparés par des virgules) : ").split(
-                ',')
-
-            Commandes.creer_commande(client_id, plats_commandes)
-        elif choix == "9":
-            client_id = input("Veuillez entrer l'ID du client pour afficher sa commande : ")
-            Commandes.afficher_commande_par_client_id(client_id)
-        elif choix == "10":
-            Commandes.exporter_commandes()
-        elif choix == "11":
-            commande_id = input("Veuillez entrer l'ID de la commande pour voir la facture : ")
-            facture_associee = Commandes.obtenir_facture_par_commande_id(commande_id)
-            print(facture_associee)
-        elif choix == "12":
-            plats_populaires = Plats.plats_populaires()  # Appel de la méthode statique
+        elif choix == "5":
+            plats_populaires = Plats.plats_populaires()
             if plats_populaires:
                 print("Plats populaires :")
                 for plat in plats_populaires:
@@ -114,6 +84,37 @@ while True:
                         f"Nom: {plat["nom"]}, Description: {plat["description"]}, Prix: {plat["prix"]}, Categorie: {plat["categorie"]}")
             else:
                 print("Aucun plat populaire trouvé.")
+        elif choix == "6":
+            client_id = input("Veuillez entrer l'ID du client pour afficher ses commandes : ")
+            Plats.afficher_commande_par_client_id(client_id)
+        elif choix == "7":
+            identifiant_a_modifier = input("Entrez l'identifiant du client à modifier : ")
+            nouveau_prenom = input("Entrez le nouveau prenom : ")
+            nouveau_nom = input("Entrez le nouveau nom : ")
+            nouveau_numero_telephone = input("Entrez le nouveau numéro de téléphone : ")
+            nouveau_mot_de_passe = input("Entrez le nouveau mot de passe : ")
+            Connexion.modifier_infos_client(identifiant_a_modifier, nouveau_numero_telephone, nouveau_nom,
+                                            nouveau_prenom, nouveau_mot_de_passe)
+        elif choix == "8":
+            identifiant_a_supprimer = input("Entrez l'identifiant du client à supprimer : ")
+            Connexion.supprimer_client(identifiant_a_supprimer)
+
+        elif choix == "9":
+            client_id = input("Veuillez entrer l'ID du client pour lequel vous souhaitez créer une commande : ")
+            plats_commandes = input("Entrez la liste des ID des plats commandés (séparés par des virgules) : ").split(
+                ',')
+
+            Commandes.creer_commande(client_id, plats_commandes)
+        elif choix == "10":
+            client_id = input("Veuillez entrer l'ID du client pour afficher sa commande : ")
+            Commandes.afficher_commande_par_client_id(client_id)
+        elif choix == "11":
+            Commandes.exporter_commandes()
+        elif choix == "12":
+            commande_id = input("Veuillez entrer l'ID de la commande pour voir la facture : ")
+            facture_associee = Commandes.obtenir_facture_par_commande_id(commande_id)
+            print(facture_associee)
+
         elif choix == "13":
             prenom = input("Veuillez entrer votre prénom : ")
             nom = input("Veuillez entrer votre nom : ")
