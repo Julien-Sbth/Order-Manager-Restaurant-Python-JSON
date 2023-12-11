@@ -2,6 +2,7 @@ from Fonctions.Connexion import Connexion
 from Fonctions.inscription import Inscription
 from Fonctions.Fonctions_Plats import Plats
 from Fonctions.Fonctions_Commandes import Commandes
+import json
 
 while True:
     choix_connexion = input("Souhaitez-vous vous connecter (c) ou vous inscrire (i) ? (c/i/q pour quitter) : ")
@@ -99,12 +100,38 @@ while True:
             identifiant_a_supprimer = input("Entrez l'identifiant du client à supprimer : ")
             Connexion.supprimer_client(identifiant_a_supprimer)
 
-        elif choix == "9":
+        if choix == "9":
+
+            # Demande à l'utilisateur de saisir client_id
+
             client_id = input("Veuillez entrer l'ID du client pour lequel vous souhaitez créer une commande : ")
-            plats_commandes = input("Entrez la liste des ID des plats commandés (séparés par des virgules) : ").split(
+
+            # Affichage des détails de chaque plat disponible avant de créer la commande
+
+            with open("./json/plats.json", 'r') as fichier_plats:
+
+                plats = json.load(fichier_plats)
+
+                print("Liste des plats disponibles :")
+
+                for plat in plats:
+                    plat_id = plat.get('id')
+                    plat_name = plat.get('nom')
+                    plat_description = plat.get('description')
+                    plat_prix = plat.get('prix')
+                    plat_categorie = plat.get('categorie')
+                    print(f"ID : {plat_id}")
+                    print(f"Nom : {plat_name}")
+                    print(f"Description : {plat_description}")
+                    print(f"Prix : {plat_prix}")
+                    print(f"Catégorie : {plat_categorie}")
+                    print("------------")
+
+            plats_commandes = input("Entrez la liste des noms des plats commandés (séparés par des virgules) : ").split(
                 ',')
 
             Commandes.creer_commande(client_id, plats_commandes)
+
         elif choix == "10":
             client_id = input("Veuillez entrer l'ID du client pour afficher sa commande : ")
             Commandes.afficher_commande_par_client_id(client_id)
