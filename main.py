@@ -94,6 +94,7 @@ while True:
         elif choix == "6":
             client_id = input("Veuillez entrer l'ID du client pour afficher ses commandes : ")
             Plats.afficher_commande_par_client_id(client_id)
+
         elif choix == "7":
             identifiant_a_modifier = input("Entrez l'identifiant du client à modifier : ")
             nouveau_prenom = input("Entrez le nouveau prenom : ")

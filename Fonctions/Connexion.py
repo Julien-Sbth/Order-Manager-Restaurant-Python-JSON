@@ -12,8 +12,7 @@ class Connexion(Clients):
         while True:
             clients = self.obtenir_clients()
             for client in clients:
-                if 'mot_de_passe' in client and client['prenom'] == self.prenom and client[
-                    'mot_de_passe'] == self.mot_de_passe:
+                if 'mot_de_passe' in client and client['prenom'] == self.prenom and client['mot_de_passe'] == self.mot_de_passe:
                     print(f"Connecté en tant que client {self.prenom}.")
                     return
             print("Connexion échouée. Veuillez vérifier vos informations.")

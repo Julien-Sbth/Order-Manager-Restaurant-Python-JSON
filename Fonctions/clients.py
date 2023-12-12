@@ -17,4 +17,3 @@ class Clients:
             derniers_clients = sorted(clients_existant, key=lambda x: x.get('identifiant', 0), reverse=True)
             dernier_identifiant = derniers_clients[0]['identifiant']
             return dernier_identifiant
-

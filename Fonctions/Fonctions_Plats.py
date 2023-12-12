@@ -188,4 +188,4 @@ class Plats:
 
                 return plats_aleatoires
         else:
-            print("Les fichiers de commandes ou de plats n'existent pas.")
+            print("Les plats n'existent pas.")

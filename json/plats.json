@@ -15,34 +15,27 @@
     },
     {
         "id": "3",
-        "nom": "Lasagne",
-        "description": "Lasagne avec fromages et viandes",
-        "prix": "17.75 \u20ac",
-        "categorie": "Entrer"
-    },
-    {
-        "id": "4",
         "nom": "Gateau",
         "description": "Gateau au chocolat",
         "prix": "18.00 \u20ac",
         "categorie": "Dessert"
     },
     {
-        "id": "5",
+        "id": "4",
         "nom": "Sushi",
         "description": "Sushi avec de la sauce samourai",
         "prix": "18.50 \u20ac",
         "categorie": "Plat"
     },
     {
-        "id": "6",
+        "id": "5",
         "nom": "Burger McDonald",
         "description": "Viande, Sauce Ketchup, Salade",
         "prix": "9.50 \u20ac",
         "categorie": "Plat"
     },
     {
-        "id": "7",
+        "id": "6",
         "nom": "Tacos mexicains",
         "description": "Tacos avec de la bonne viande",
         "prix": "15.00 \u20ac",
@@ -50,51 +43,16 @@
     },
     {
         "id": "8",
-        "nom": "P\u00c3\u00a2tes carbonara",
-        "description": "P\u00c3\u00a2tes carbonara",
-        "prix": "17.75 \u20ac",
-        "categorie": "Plat"
-    },
-    {
-        "id": "9",
         "nom": "Lasagne",
         "description": "Lasagne avec fromages et viandes",
         "prix": "17.75 \u20ac",
         "categorie": "Entrer"
     },
     {
-        "id": "10",
+        "id": "9",
         "nom": "Pizza Margherita",
         "description": "Pizza Margherita",
         "prix": "10.00 \u20ac",
         "categorie": "Plat"
-    },
-    {
-        "id": "11",
-        "nom": "Crevettes saut\u00c3\u00a9es \u00c3\u00a0 l'ail",
-        "description": "Crevettes saut\u00c3\u00a9es \u00c3\u00a0 l'ail",
-        "prix": "13.75 \u20ac",
-        "categorie": "Entrer"
-    },
-    {
-        "id": "12",
-        "nom": "Poulet r\u00f4ti",
-        "description": "Poulet r\u00f4ti ",
-        "prix": "19.81 \u20ac",
-        "categorie": "Plat"
-    },
-    {
-        "id": "13",
-        "nom": "Momo",
-        "description": "Excellent",
-        "prix": "8.0 \u20ac",
-        "categorie": "Plat"
-    },
-    {
-        "id": "14",
-        "nom": "Test",
-        "description": "test",
-        "prix": "25.00 \u20ac",
-        "categorie": "test"
     }
 ]

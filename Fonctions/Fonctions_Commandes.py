@@ -1,7 +1,6 @@
 import json
 import os
 import csv
-import random
 
 
 class Commandes:
@@ -48,6 +47,7 @@ class Commandes:
                 plat_description = plat.get('description')
                 plat_prix = plat.get('prix')
                 plat_categorie = plat.get('categorie')
+                print("------------")
                 print(f"ID : {plat_id}")
                 print(f"Nom : {plat_name}")
                 print(f"Description : {plat_description}")
@@ -66,7 +66,6 @@ class Commandes:
         dernier_id = max([commande.get('id_commande', 0) for commande in data], default=0)
         nouvel_id = dernier_id + 1
 
-        # Le reste du code pour la création de commande...
         plats_dict = {plat['nom']: float(plat['prix'][:-2]) for plat in plats}
         total_plats = 0.0
 
@@ -147,6 +146,7 @@ class Commandes:
                 for plat_recommande in plats_recommandes:
                     plat_info = next((p for p in data_plats if p['nom'] == plat_recommande), None)
                     if plat_info:
+                        print("------------")
                         print(f"Nom : {plat_info['nom']}")
                         print(f"Description : {plat_info['description']}")
                         print(f"Prix : {plat_info['prix']}")

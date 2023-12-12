@@ -3,65 +3,124 @@
         "id_commande": 1,
         "client_id": "1",
         "plats": [
-            "Pizza"
-        ],
-        "facture": 25.0
-    },
-    {
-        "id_commande": 2,
-        "client_id": "2",
-        "plats": [
             "Taboulet"
         ],
         "facture": 7.27
     },
     {
-        "id_commande": 3,
-        "client_id": "3",
+        "id_commande": 2,
+        "client_id": "2",
         "plats": [
-            "Pizza",
-            "Taboulet"
-        ],
-        "facture": 32.27
-    },
-    {
-        "id_commande": 4,
-        "client_id": "4",
-        "plats": [
-            "Lasagne"
+            "Sushi"
         ],
         "facture": 17.75
     },
     {
-        "id_commande": 5,
-        "client_id": "5",
+        "id_commande": 3,
+        "client_id": "3",
         "plats": [
             "Pizza Margherita"
         ],
         "facture": 10.0
     },
     {
+        "id_commande": 4,
+        "client_id": "4",
+        "plats": [
+            "Burger McDonald"
+        ],
+        "facture": 9.5
+    },
+    {
+        "id_commande": 5,
+        "client_id": "5",
+        "plats": [
+            "Gateau"
+        ],
+        "facture": 18.0
+    },
+    {
         "id_commande": 6,
         "client_id": "6",
         "plats": [
-            "Tacos mexicains"
+            "Gateau"
         ],
-        "facture": 15.0
+        "facture": 18.0
     },
     {
         "id_commande": 7,
         "client_id": "7",
+        "plats": [
+            "Burger McDonald"
+        ],
+        "facture": 9.5
+    },
+    {
+        "id_commande": 8,
+        "client_id": "8",
+        "plats": [
+            "test"
+        ],
+        "facture": 25.0
+    },
+    {
+        "id_commande": 9,
+        "client_id": "9",
+        "plats": [
+            "4"
+        ],
+        "facture": 0.0
+    },
+    {
+        "id_commande": 10,
+        "client_id": "10",
+        "plats": [
+            "Pizza Margherita"
+        ],
+        "facture": 10.0
+    },
+    {
+        "id_commande": 11,
+        "client_id": "11",
+        "plats": [
+            "Lasagne",
+            "Burger McDonald"
+        ],
+        "facture": 27.25
+    },
+    {
+        "id_commande": 12,
+        "client_id": "12",
         "plats": [
             "Lasagne"
         ],
         "facture": 17.75
     },
     {
-        "id_commande": 8,
-        "client_id": "q",
+        "id_commande": 13,
+        "client_id": "13",
         "plats": [
-            "q"
+            "Lasagne",
+            "Burger McDonald"
         ],
-        "facture": 0.0
+        "facture": 27.25
+    },
+    {
+        "id_commande": 14,
+        "client_id": "14",
+        "plats": [
+            "Lasagne",
+            "Burger McDonald"
+        ],
+        "facture": 27.25
+    },
+    {
+        "id_commande": 15,
+        "client_id": "15",
+        "plats": [
+            "Lasagne",
+            "Burger McDonald"
+        ],
+        "facture": 27.25
     }
 ]
