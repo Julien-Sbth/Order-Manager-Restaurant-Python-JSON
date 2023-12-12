@@ -175,17 +175,12 @@ class Plats:
             with open(nom_fichier_commandes, 'r') as fichier_commandes, open(nom_fichier_plats, 'r') as fichier_plats:
                 commandes = json.load(fichier_commandes)
                 plats = json.load(fichier_plats)
-
                 plats_commandes = [plat_id for commande in commandes for plat_id in commande.get('plats', [])]
                 compteur_plats = Counter(plats_commandes)
-
                 plats_populaires_ids = [plat_id for plat_id, count in compteur_plats.most_common(nb_plats)]
                 details_plats_populaires = [plat for plat in plats if plat['nom'] in plats_populaires_ids]
-
                 random.shuffle(details_plats_populaires)
-
                 plats_aleatoires = random.sample(details_plats_populaires, min(len(details_plats_populaires), nb_plats))
-
                 return plats_aleatoires
         else:
             print("Les plats n'existent pas.")

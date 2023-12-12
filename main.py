@@ -88,9 +88,11 @@ while True:
                 print("Plats populaires :")
                 for plat in plats_populaires:
                     print(
-                        f"Nom: {plat["nom"]}, Description: {plat["description"]}, Prix: {plat["prix"]}, Categorie: {plat["categorie"]}")
+                        f"Nom: {plat['nom']}, Description: {plat['description']}, Prix: {plat['prix']}, Categorie: {plat['categorie']}"
+                    )
             else:
                 print("Aucun plat populaire trouvé.")
+
         elif choix == "6":
             client_id = input("Veuillez entrer l'ID du client pour afficher ses commandes : ")
             Plats.afficher_commande_par_client_id(client_id)
