@@ -1,10 +1,19 @@
-5id_commande,client_id,plats,facture
-2,2,['Taboulet'],7.27
-4,4,['Sushi'],17.75
-5,5,['Pizza Margherita'],10.0
-6,6,['Tacos mexicains'],15.0
+id_commande,client_id,plats,facture
+1,1,['Taboulet'],7.27
+2,2,['Sushi'],17.75
+3,3,['Pizza Margherita'],10.0
+4,4,['Burger McDonald'],9.5
+5,5,['Gateau'],18.0
+6,6,['Gateau'],18.0
 7,7,['Burger McDonald'],9.5
-8,8,['Gateau'],18.0
-9,8,['Gateau'],18.0
-10,10,['Burger McDonald'],9.5
-11,15,['test'],25.0
+8,8,['test'],25.0
+9,9,['4'],0.0
+10,10,['Pizza Margherita'],10.0
+11,11,"['Lasagne', 'Burger McDonald']",27.25
+12,12,['Lasagne'],17.75
+13,13,"['Lasagne', 'Burger McDonald']",27.25
+14,14,"['Lasagne', 'Burger McDonald']",27.25
+15,15,"['Lasagne', 'Burger McDonald']",27.25
+16,12,['Sushi'],18.5
+17,14,['4'],0.0
+18,10,['Pizza Margherita'],10.0

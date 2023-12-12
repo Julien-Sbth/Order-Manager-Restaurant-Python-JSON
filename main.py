@@ -111,6 +111,9 @@ while True:
 
         if choix == "9":
             client_id = input("Veuillez entrer l'ID du client pour lequel vous souhaitez créer une commande : ")
+
+            Commandes.afficher_plats_disponibles()
+
             plats_commandes = input("Entrez la liste des noms des plats commandés (séparés par des virgules) : ").split(
                 ',')
             Commandes.creer_commande(client_id, plats_commandes)
@@ -135,7 +138,7 @@ while True:
 
         elif choix == "14":
             client_id = input("Veuillez entrer l'ID du client pour obtenir des recommandations : ")
-            Commandes.Recommendation(client_id)
+            Commandes.Recommandation(client_id)
 
         elif choix.lower() == "q":
             print("Au revoir !")

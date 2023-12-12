@@ -37,7 +37,7 @@ class Commandes:
             print(f"Le fichier des commandes {nom_fichier} n'existe pas.")
 
     @staticmethod
-    def creer_commande(client_id, plats_commandes):
+    def afficher_plats_disponibles():
         with open("./json/plats.json", 'r') as fichier_plats:
             plats = json.load(fichier_plats)
             print("Liste des plats disponibles :")
@@ -55,6 +55,10 @@ class Commandes:
                 print(f"Catégorie : {plat_categorie}")
                 print("------------")
 
+    @staticmethod
+    def creer_commande(client_id, plats_commandes):
+        Commandes.afficher_plats_disponibles()
+
         nom_fichier = "./json/commandes.json"
 
         if os.path.exists(nom_fichier) and os.path.getsize(nom_fichier) > 0:
@@ -66,13 +70,15 @@ class Commandes:
         dernier_id = max([commande.get('id_commande', 0) for commande in data], default=0)
         nouvel_id = dernier_id + 1
 
-        plats_dict = {plat['nom']: float(plat['prix'][:-2]) for plat in plats}
-        total_plats = 0.0
+        with open("./json/plats.json", 'r') as fichier_plats:
+            plats = json.load(fichier_plats)
+            plats_dict = {plat['nom']: float(plat['prix'][:-2]) for plat in plats}
+            total_plats = 0.0
 
-        for plat_commande in plats_commandes:
-            plat_commande = plat_commande.strip()
-            if plat_commande in plats_dict:
-                total_plats += plats_dict[plat_commande]
+            for plat_commande in plats_commandes:
+                plat_commande = plat_commande.strip()
+                if plat_commande in plats_dict:
+                    total_plats += plats_dict[plat_commande]
 
         nouvelle_commande = {
             "id_commande": nouvel_id,
@@ -87,6 +93,8 @@ class Commandes:
             json.dump(data, fichier, indent=4)
 
         print(f"La commande pour le client avec l'ID {client_id} a été enregistrée.")
+
+    # L'appel de la fonction creer_commande se fera depuis ailleurs dans votre code.
 
     @classmethod
     def exporter_commandes(cls):
@@ -124,7 +132,7 @@ class Commandes:
             return "Le fichier des commandes n'existe pas."
 
     @staticmethod
-    def Recommendation(client_id):
+    def Recommandation(client_id):
         nom_fichier_commandes = "./json/commandes.json"
         nom_fichier_plats = "./json/plats.json"
 

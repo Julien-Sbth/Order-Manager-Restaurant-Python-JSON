@@ -54,5 +54,26 @@
         "description": "Pizza Margherita",
         "prix": "10.00 \u20ac",
         "categorie": "Plat"
+    },
+    {
+        "id": "10",
+        "nom": "Plat",
+        "description": "Plat",
+        "prix": "147.000 \u20ac",
+        "categorie": "Plat"
+    },
+    {
+        "id": "11",
+        "nom": "plat",
+        "description": "palat",
+        "prix": "145.000 \u20ac",
+        "categorie": "plat"
+    },
+    {
+        "id": "12",
+        "nom": "plat",
+        "description": "plat",
+        "prix": "1455.000 \u20ac",
+        "categorie": "plat"
     }
 ]

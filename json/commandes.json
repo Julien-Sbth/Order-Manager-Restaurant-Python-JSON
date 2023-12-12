@@ -122,5 +122,45 @@
             "Burger McDonald"
         ],
         "facture": 27.25
+    },
+    {
+        "id_commande": 16,
+        "client_id": "12",
+        "plats": [
+            "Sushi"
+        ],
+        "facture": 18.5
+    },
+    {
+        "id_commande": 17,
+        "client_id": "14",
+        "plats": [
+            "4"
+        ],
+        "facture": 0.0
+    },
+    {
+        "id_commande": 18,
+        "client_id": "10",
+        "plats": [
+            "Pizza Margherita"
+        ],
+        "facture": 10.0
+    },
+    {
+        "id_commande": 19,
+        "client_id": "13",
+        "plats": [
+            "platy"
+        ],
+        "facture": 0.0
+    },
+    {
+        "id_commande": 20,
+        "client_id": "17",
+        "plats": [
+            "plat"
+        ],
+        "facture": 1455.0
     }
 ]
