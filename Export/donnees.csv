@@ -1,2 +1,10 @@
-id,client_id,plats
-1,1,['a']
+5id_commande,client_id,plats,facture
+2,2,['Taboulet'],7.27
+4,4,['Sushi'],17.75
+5,5,['Pizza Margherita'],10.0
+6,6,['Tacos mexicains'],15.0
+7,7,['Burger McDonald'],9.5
+8,8,['Gateau'],18.0
+9,8,['Gateau'],18.0
+10,10,['Burger McDonald'],9.5
+11,15,['test'],25.0
